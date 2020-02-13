@@ -35,7 +35,7 @@ class MainWindow(QMainWindow):
             print(delta, toponym_longitude, toponym_lattitude)
             self.request_static_maps_api(delta, toponym_longitude, toponym_lattitude)
         except BaseException:
-            print('ERROR')
+            self.label.setText('ERROR')
 
     def request_static_maps_api(self, delta, toponym_longitude, toponym_lattitude):
         map_params = {
@@ -50,7 +50,7 @@ class MainWindow(QMainWindow):
             image = response.content
             self.draw_image(image)
         except BaseException:
-            print('ERROR')
+            self.label.setText('ERROR')
 
     def draw_image(self, image):
         map_file = "map.png"
